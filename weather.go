@@ -8,24 +8,25 @@ import (
 	"net/http"
 )
 
+// Weather is the main data structure of weather conditions
 type Weather struct {
-	Lat            float64 `json:"lat"`
-	Lon            float64 `json:"lon"`
+	Lat            float32 `json:"lat"`
+	Lon            float32 `json:"lon"`
 	Timezone       string  `json:"timezone"`
 	TimezoneOffset int     `json:"timezone_offset"`
 	Current        struct {
 		Dt         int     `json:"dt"`
 		Sunrise    int     `json:"sunrise"`
 		Sunset     int     `json:"sunset"`
-		Temp       float64 `json:"temp"`
-		FeelsLike  float64 `json:"feels_like"`
+		Temp       float32 `json:"temp"`
+		FeelsLike  float32 `json:"feels_like"`
 		Pressure   int     `json:"pressure"`
 		Humidity   int     `json:"humidity"`
-		DewPoint   float64 `json:"dew_point"`
-		Uvi        int     `json:"uvi"`
+		DewPoint   float32 `json:"dew_point"`
+		Uvi        float32 `json:"uvi"`
 		Clouds     int     `json:"clouds"`
 		Visibility int     `json:"visibility"`
-		WindSpeed  float64 `json:"wind_speed"`
+		WindSpeed  float32 `json:"wind_speed"`
 		WindDeg    int     `json:"wind_deg"`
 		Weather    []struct {
 			ID          int    `json:"id"`
@@ -39,23 +40,23 @@ type Weather struct {
 		Sunrise int `json:"sunrise"`
 		Sunset  int `json:"sunset"`
 		Temp    struct {
-			Day   float64 `json:"day"`
-			Min   float64 `json:"min"`
-			Max   float64 `json:"max"`
-			Night float64 `json:"night"`
-			Eve   float64 `json:"eve"`
-			Morn  float64 `json:"morn"`
+			Day   float32 `json:"day"`
+			Min   float32 `json:"min"`
+			Max   float32 `json:"max"`
+			Night float32 `json:"night"`
+			Eve   float32 `json:"eve"`
+			Morn  float32 `json:"morn"`
 		} `json:"temp"`
 		FeelsLike struct {
-			Day   float64 `json:"day"`
-			Night float64 `json:"night"`
-			Eve   float64 `json:"eve"`
-			Morn  float64 `json:"morn"`
+			Day   float32 `json:"day"`
+			Night float32 `json:"night"`
+			Eve   float32 `json:"eve"`
+			Morn  float32 `json:"morn"`
 		} `json:"feels_like"`
 		Pressure  int     `json:"pressure"`
 		Humidity  int     `json:"humidity"`
-		DewPoint  float64 `json:"dew_point"`
-		WindSpeed float64 `json:"wind_speed"`
+		DewPoint  float32 `json:"dew_point"`
+		WindSpeed float32 `json:"wind_speed"`
 		WindDeg   int     `json:"wind_deg"`
 		Weather   []struct {
 			ID          int    `json:"id"`
@@ -64,16 +65,24 @@ type Weather struct {
 			Icon        string `json:"icon"`
 		} `json:"weather"`
 		Clouds int     `json:"clouds"`
-		Pop    float64 `json:"pop"`
-		Uvi    float64 `json:"uvi"`
-		Snow   float64 `json:"snow,omitempty"`
+		Pop    float32 `json:"pop"`
+		Uvi    float32 `json:"uvi"`
+		Rain   float32 `json:"rain,omitempty"`
+		Snow   float32 `json:"snow,omitempty"`
 	} `json:"daily"`
+	Alerts []struct {
+		SenderName  string `json:"sender_name"`
+		Event       string `json:"event"`
+		Start       int    `json:"start"`
+		End         int    `json:"end"`
+		Description string `json:"description"`
+	} `json:"alerts"`
 }
 
+// GetWeather is geting weather details from OpenWeatherAPI
 func GetWeather(lat float32, lon float32, apiKey string) {
 	openWeatherURL := fmt.Sprintf("https://api.openweathermap.org/data/2.5/onecall?lat=%f&lon=%f&exclude=hourly,minutely,alerts&units=metric&appid=%s",
 		lat, lon, apiKey)
-	fmt.Println(openWeatherURL)
 	res, err := http.Get(openWeatherURL)
 	if err != nil {
 		log.Fatal(err)
