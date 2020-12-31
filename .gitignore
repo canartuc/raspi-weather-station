@@ -22,3 +22,6 @@
 
 # Visual Studio Code
 .vscode/
+
+# Custom runner of app
+runner.sh
