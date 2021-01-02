@@ -5,6 +5,13 @@
     <title>cRaspiWeatherStation</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.woff2" rel="stylesheet">
+    <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.woff" rel="stylesheet">
+    <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.ttf" rel="stylesheet">
+    <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.svg" rel="stylesheet">
+    <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.eot" rel="stylesheet">
+    <link href="https://pagecdn.io/lib/weather-icons/2.0.10/css/weather-icons.min.css" rel="stylesheet"
+          crossorigin="anonymous">
     <style>
         /* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
         html, body, div, span, applet, object, iframe,
@@ -86,25 +93,41 @@
         }
 
         div.daily {
-            margin: 0;
-            width: 98%;
+            text-align: center;
+            width: 99%;
             height: 14%;
-            display: block;
-            clear: both;
-            border: 1px solid #ffffff;
+
+            color: #F8B702;
         }
 
-        div.daily img {
-            width: 64px;
-            height: 64px;
+        div.daily i {
+            font-size: 1.8vw;
+            margin-bottom: 8px;
         }
 
         div.daily p {
-            position: relative;
-            text-align: right;
-            margin: -22px 0 0 0;
-            color: #F8B702;
             font-size: 1.1vw;
+        }
+
+        div.daily p.date{
+            font-size: 0.8vw;
+            text-align: right;
+            color: #ea5455;
+        }
+
+        .daily_left {
+            display: block;
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+
+        .daily_right {
+            display: block;
+            float: left;
+            width: 49%;
+            height: 100%;
+
         }
 
         div#current_weather {
@@ -153,15 +176,82 @@
     </div>
     <div id="right">
         <div class="daily" id="day1">
-            <img src="https://canartuc.com/w/01d.png" />
-            <p>45°</p>
+            <div class="daily_left">
+                <i class="wi wi-snowflake-cold"></i>
+                <p>3°</p>
+            </div>
+            <div class="daily_right">
+                <p class="date">03</p>
+                <p class="date">01</p>
+                <p class="date">21</p>
+            </div>
         </div>
-        <div class="daily" id="day2">day2</div>
-        <div class="daily" id="day3">day3</div>
-        <div class="daily" id="day4">day4</div>
-        <div class="daily" id="day5">day5</div>
-        <div class="daily" id="day6">day6</div>
-        <div class="daily" id="day7">day7</div>
+        <div class="daily" id="day2">
+            <div class="daily_left">
+                <i class="wi wi-showers"></i>
+                <p>3°</p>
+            </div>
+            <div class="daily_right">
+                <p class="date">04</p>
+                <p class="date">01</p>
+                <p class="date">21</p>
+            </div>
+        </div>
+        <div class="daily" id="day3">
+            <div class="daily_left">
+                <i class="wi wi-showers"></i>
+                <p>3°</p>
+            </div>
+            <div class="daily_right">
+                <p class="date">05</p>
+                <p class="date">01</p>
+                <p class="date">21</p>
+            </div>
+        </div>
+        <div class="daily" id="day4">
+            <div class="daily_left">
+                <i class="wi wi-showers"></i>
+                <p>4°</p>
+            </div>
+            <div class="daily_right">
+                <p class="date">06</p>
+                <p class="date">01</p>
+                <p class="date">21</p>
+            </div>
+        </div>
+        <div class="daily" id="day5">
+            <div class="daily_left">
+                <i class="wi wi-showers"></i>
+                <p>2°</p>
+            </div>
+            <div class="daily_right">
+                <p class="date">07</p>
+                <p class="date">01</p>
+                <p class="date">21</p>
+            </div>
+        </div>
+        <div class="daily" id="day6">
+            <div class="daily_left">
+                <i class="wi wi-cloud"></i>
+                <p>2°</p>
+            </div>
+            <div class="daily_right">
+                <p class="date">08</p>
+                <p class="date">01</p>
+                <p class="date">21</p>
+            </div>
+        </div>
+        <div class="daily" id="day7">
+            <div class="daily_left">
+                <i class="wi wi-snowflake-cold"></i>
+                <p>1°</p>
+            </div>
+            <div class="daily_right">
+                <p class="date">09</p>
+                <p class="date">01</p>
+                <p class="date">21</p>
+            </div>
+        </div>
     </div>
 </div>
 </body>
