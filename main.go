@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"net/http"
 	"sync"
 )
 
@@ -33,4 +34,8 @@ func main() {
 	} else {
 		log.Fatal("You must provide apikey command line parameter to perform operation.")
 	}
+
+	fs:= http.FileServer(http.Dir("templates/"))
+	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
