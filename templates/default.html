@@ -5,6 +5,8 @@
     <title>cRaspiWeatherStation</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
     <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.woff2" rel="stylesheet">
     <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.woff" rel="stylesheet">
     <link href="https://pagecdn.io/lib/weather-icons/2.0.10/font/weathericons-regular-webfont.ttf" rel="stylesheet">
@@ -82,7 +84,6 @@
             height: 100%;
             display: block;
             margin-right: 1%;
-            background: aqua;
         }
 
         div#right {
@@ -146,10 +147,13 @@
         div#dt {
             width: 100%;
             height: 14%;
-            background: crimson;
             display: block;
             clear: both;
             margin-bottom: 1%;
+            color: #00b8a9;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            font-size: 3.5vw;
         }
 
         div#daily_details {
@@ -174,7 +178,7 @@
 <div id="container">
     <div id="left">
         <div id="current_weather">current_weather</div>
-        <div id="dt">date_time</div>
+        <div id="dt">20:12</div>
         <div id="daily_details">daily_details</div>
         <div id="air_quality">air_quality</div>
     </div>
