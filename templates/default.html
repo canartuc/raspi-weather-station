@@ -150,10 +150,11 @@
             display: block;
             clear: both;
             margin-bottom: 1%;
-            color: #00b8a9;
+            color: #e05297;
             font-family: 'Orbitron', sans-serif;
             text-align: center;
-            font-size: 3.5vw;
+            font-size: 2.9vw;
+            vertical-align: center;
         }
 
         div#daily_details {
@@ -178,7 +179,7 @@
 <div id="container">
     <div id="left">
         <div id="current_weather">current_weather</div>
-        <div id="dt">20:12</div>
+        <div id="dt"></div>
         <div id="daily_details">daily_details</div>
         <div id="air_quality">air_quality</div>
     </div>
@@ -262,5 +263,25 @@
         </div>
     </div>
 </div>
+
+<!-- Show the current time with the following javascript function-->
+<script>
+    (function () {
+        function checkTime(i) {
+            return (i < 10) ? "0" + i : i;
+        }
+
+        function startTime() {
+            let today = new Date(),
+                h = checkTime(today.getHours()),
+                m = checkTime(today.getMinutes());
+            document.getElementById('dt').innerHTML = h + ":" + m;
+            t = setTimeout(function () {
+                startTime()
+            }, 500);
+        }
+        startTime();
+    })();
+</script>
 </body>
 </html>
