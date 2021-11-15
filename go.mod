@@ -1,3 +1,3 @@
-module github.com/canartuc/raspi-weather-station
+module com.canartuc.raspiweather
 
-go 1.15
+go 1.17

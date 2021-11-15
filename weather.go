@@ -79,7 +79,7 @@ type Weather struct {
 	} `json:"alerts"`
 }
 
-// GetWeather is geting weather details from OpenWeatherAPI
+// GetWeather is getting weather details from OpenWeatherAPI
 func GetWeather(lat float64, lon float64, apiKey string) {
 	openWeatherURL := fmt.Sprintf("https://api.openweathermap.org/data/2.5/onecall?lat=%f&lon=%f&exclude=hourly,minutely,alerts&units=metric&appid=%s",
 		lat, lon, apiKey)
