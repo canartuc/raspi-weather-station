@@ -23,5 +23,9 @@
 # Visual Studio Code
 .vscode/
 
-# Custom runner of app
+# Custom runner of app - You can add your own runner
 runner.sh
+
+# Hot reloader configuration file. If you would like to use your own: https://github.com/cosmtrek/air 
+.air.toml
+tmp/
